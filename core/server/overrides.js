@@ -1,11 +1,4 @@
-var moment = require('moment-timezone'),
-    _ = require('lodash'),
-    toPairs = require('lodash.topairs'),
-    fromPairs = require('lodash.frompairs'),
-    toString = require('lodash.tostring'),
-    pickBy = require('lodash.pickby'),
-    uniqBy = require('lodash.uniqby'),
-    omitBy = require('lodash.omitby');
+var moment = require('moment-timezone');
 
 /**
  * force UTC
@@ -15,13 +8,3 @@ var moment = require('moment-timezone'),
  *   - be careful when you work with date operations, therefor always wrap a date into moment
  */
 moment.tz.setDefault('UTC');
-
-/**
- * lodash 4.x functions we use
- */
-_.toPairs = toPairs;
-_.fromPairs = fromPairs;
-_.toString = toString;
-_.omitBy = omitBy;
-_.uniqBy = uniqBy;
-_.pickBy = pickBy;
