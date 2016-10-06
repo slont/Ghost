@@ -37,20 +37,17 @@ popular_posts = function(options) {
     contentInfos = res.rows.slice(0, Math.min(max, res.rows.length));
     // db.close();
     return api.posts.browse({
-          context: {
-            internal: false
-          },
-          limit: 'all',
-          filter: contentInfos.map(function(info) {
-            return 'slug:' + info[0].substr(1, info[0].length - 2);
-          }).join(','),
-          fields: 'title,slug' + (mode !== 0 ? ',image' : '')
-        }
-    )
+      context: { internal: false },
+      limit: 'all',
+      filter: contentInfos.map(function(info) {
+        return 'slug:' + info[0].substr(1, info[0].length - 2);
+      }).join(','),
+      fields: 'title,url' + (mode !== 0 ? ',image' : '')
+    })
   }).then(function(res) {
     var posts = contentInfos.map(function(info) {
       return res.posts.filter(function(post) {
-        return '/' + post.slug + '/' === info[0];
+        return post.url === info[0];
       })[0];
     });
     var joined = "<div class='popular-posts simple-" + (mode !== 0 ? "image-" : "") + "posts'>" +
@@ -58,13 +55,13 @@ popular_posts = function(options) {
           switch(mode) {
             case 1:
               return utils.simpleImagePostTemplate({
-                url: '/' + post.slug + '/',
+                url: post.url,
                 imagePath: post.image || DEFAULT_IMAGE,
                 text: _.escape(post.title)
               });
             default:
               return utils.simplePostTemplate({
-                url: '/' + post.slug + '/',
+                url: post.url,
                 text: _.escape(post.title)
               });
           }
