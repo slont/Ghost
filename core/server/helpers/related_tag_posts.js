@@ -34,7 +34,8 @@ related_tag_posts = function(options) {
       all = options.hash && options.hash.all ? options.hash.all : false,
       mode = options.hash && options.hash.mode ? options.hash.mode : 0,
       tagIds = _.map(this.tags, 'id'),
-      tags = null;
+      tags = null,
+      self = this;
   
   var query = {
     context: { internal: false },
@@ -58,7 +59,7 @@ related_tag_posts = function(options) {
     });
     return api.posts.browse({
       context: { internal: false },
-      limit: String(max),
+      limit: String(max + 1),
       filter: tags.map(function(tag) { return 'tags.id:' + tag.id }).join(',')
     });
   }).then(function(res) {
