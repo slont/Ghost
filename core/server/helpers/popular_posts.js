@@ -30,12 +30,15 @@ popular_posts = function(options) {
       max = options.hash && options.hash.max ? options.hash.max : DEFAULT_MAX,
       period = options.hash && options.hash.period ? options.hash.period : DEFAULT_PERIOD,
       all = options.hash && options.hash.all ? options.hash.all : false,
-      mode = options.hash && options.hash.mode ? options.hash.mode : 0;
+      mode = options.hash && options.hash.mode ? options.hash.mode : 0,
+      self = this;
 
   var cursor = col.find({'query.period': period});
   return cursor.next().then(function(res) {
-    contentInfos = res.rows.slice(0, Math.min(max, res.rows.length));
-    // db.close();
+    contentInfos = res.rows.filter(function(info) {
+      return self.url !== info[0];
+    }).slice(0, Math.min(max, res.rows.length - 1));
+    
     return api.posts.browse({
       context: { internal: false },
       limit: 'all',
@@ -45,11 +48,17 @@ popular_posts = function(options) {
       fields: 'title,url' + (mode !== 0 ? ',image' : '')
     })
   }).then(function(res) {
+    // 人気順に並び替え
     var posts = contentInfos.map(function(info) {
       return res.posts.filter(function(post) {
         return post.url === info[0];
       })[0];
     });
+
+    if (posts.length === 0) {
+      return new hbs.handlebars.SafeString("");
+    }
+    
     var joined = "<div class='popular-posts simple-" + (mode !== 0 ? "image-" : "") + "posts'>" +
         _.map(posts, function(post) {
           switch(mode) {

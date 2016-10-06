@@ -52,7 +52,7 @@ related_tag_posts = function(options) {
     // 記事に関連するタグのみ選出
     var count = 0;
     var tags = res.tags.filter(function(tag) {
-      if (max <= count) return false;
+      if (extraMax <= count) return false;
       count += tag.count.posts;
       return true;
     });
@@ -62,8 +62,16 @@ related_tag_posts = function(options) {
       filter: tags.map(function(tag) { return 'tags.id:' + tag.id }).join(',')
     });
   }).then(function(res) {
+    var posts = res.posts.filter(function(post) {
+      return self.id !== post.id
+    }).slice(0, Math.min(max, res.posts.length - 1));
+    
+    if (posts.length === 0) {
+      return new hbs.handlebars.SafeString("");
+    }
+    
     var joined = "<div class='related-tag-posts simple-" + (mode !== 0 ? "image-" : "") + "posts'>" +
-        _.map(res.posts, function(post) {
+        _.map(posts, function(post) {
           switch(mode) {
             case 1:
               return utils.simpleImagePostTemplate({
