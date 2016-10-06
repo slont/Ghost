@@ -52,7 +52,7 @@ related_tag_posts = function(options) {
     // 記事に関連するタグのみ選出
     var count = 0;
     var tags = res.tags.filter(function(tag) {
-      if (extraMax <= count) return false;
+      if (max <= count) return false;
       count += tag.count.posts;
       return true;
     });
