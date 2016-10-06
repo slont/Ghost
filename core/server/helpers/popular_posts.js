@@ -48,6 +48,10 @@ popular_posts = function(options) {
       fields: 'title,url' + (mode !== 0 ? ',image' : '')
     })
   }).then(function(res) {
+    if (null == res.posts || res.posts.length === 0) {
+      return new hbs.handlebars.SafeString("");
+    }
+    
     // 人気順に並び替え
     var posts = contentInfos.map(function(info) {
       return res.posts.filter(function(post) {
@@ -55,7 +59,7 @@ popular_posts = function(options) {
       })[0];
     });
 
-    if (posts.length === 0) {
+    if (null == posts || posts.length === 0) {
       return new hbs.handlebars.SafeString("");
     }
     

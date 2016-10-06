@@ -23,11 +23,15 @@ new_posts = function(options) {
     limit: String(max + 1), // 自身を含む可能性があるため+1
     fields: 'id,title,url' + (mode !== 0 ? ',image' : '')
   }).then(function(res) {
+    if (null == res.posts || res.posts.length === 0) {
+      return new hbs.handlebars.SafeString("");
+    }
+    
     var posts = res.posts.filter(function(post) {
       return self.id !== post.id;
     }).slice(0, Math.min(max, res.posts.length - 1));
 
-    if (posts.length === 0) {
+    if (null == posts || posts.length === 0) {
       return new hbs.handlebars.SafeString("");
     }
     
