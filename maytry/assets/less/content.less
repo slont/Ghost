@@ -2,7 +2,7 @@
 
 .content-container {
   margin: 0 auto;
-  padding-top: 10px;
+  padding: 10px 20px;
   width: 100%;
   max-width: @container-width;
 
@@ -237,6 +237,18 @@
 
   .read-more {
     text-align: right;
+
+    a {
+      padding-right: 15px;
+      padding-left: 15px;
+
+      &:hover {
+        color: white;
+      }
+      i {
+        margin-left: 5px;
+      }
+    }
   }
 
   .related-posts-area,
@@ -326,7 +338,7 @@
 
 @media only screen and (max-width: 1200px) {
   .content-container {
-    max-width: 920px;
+    max-width: 1080px;
   }
 }
 

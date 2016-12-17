@@ -103,7 +103,7 @@ var overrides      = require('./core/server/overrides'),
                     src: [
                         'maytry/assets/js/vendor/highlight.pack.js',
                         'maytry/assets/js/vendor/jquery.slicknav.min.js',
-                        'maytry/assets/js/vendor/scrollReveal.min.js',
+                        // 'maytry/assets/js/vendor/scrollReveal.min.js',
                         'maytry/assets/js/vendor/scrollchaser.js',
                         'maytry/assets/js/vendor/scrollspy.js',
                         'maytry/assets/js/vendor/readingTime.js',
