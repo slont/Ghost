@@ -63,19 +63,20 @@ popular_posts = function(options) {
       return new hbs.handlebars.SafeString("");
     }
     
-    var joined = "<div class='popular-posts simple-" + (mode !== 0 ? "image-" : "") + "posts'>" +
-        _.map(posts, function(post) {
+    var joined = "<div class='popular-posts simple-" + (mode !== 0 ? "image-" : "") + "posts'>"
+        + _.map(posts, function(post, i) {
           switch(mode) {
             case 1:
-              return utils.simpleImagePostTemplate({
+              return utils.rankImagePostTemplate({
+								rank: i + 1,
                 url: post.url,
                 imagePath: post.image || DEFAULT_IMAGE,
-                text: _.escape(post.title)
+                title: _.escape(post.title)
               });
             default:
               return utils.simplePostTemplate({
                 url: post.url,
-                text: _.escape(post.title)
+								title: _.escape(post.title)
               });
           }
         }).join("") + "</div>";

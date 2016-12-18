@@ -71,18 +71,35 @@
       {{/foreach}}
     </div>
     <div class="medium-4 columns side-column">
-      <div class="popular-posts-area mt-panel">
-        <h2 class="mt-label popular-label">人気記事</h2>
-        {{popular_posts max=5 mode=1}}
-      </div>
-      <div class="tags-area mt-panel">
-        <h2 class="mt-label category-label">タグ</h2>
-        <div class="post-tags">{{tag_links all=true}}</div>
-      </div>
-      <div class="twitter-area mt-panel">
-        <h2 class="mt-label twitter-label">Twitter</h2>
-        <a class="twitter-timeline" href="https://twitter.com/_slont" data-widget-id="686940648100868097">Tweets by @_slont</a>
-      </div>
+			<!-- ResponsiveDisplayAd01 -->
+			<div class="google-ad card card-dark">
+				<div class="card-header">
+					<div class="card-title">スポンサーリンク</div>
+				</div>
+				<div class="card-content">
+					<ins class="adsbygoogle"
+							 style="display:block"
+							 data-ad-client="ca-pub-9576950957758188"
+							 data-ad-slot="8626094554"
+							 data-ad-format="auto"></ins>
+				</div>
+			</div>
+			<div class="popular-posts-area card card-dark">
+				<div class="card-header">
+					<div class="card-title">人気記事</div>
+				</div>
+				<div class="card-content">
+					{{popular_posts max=8 mode=1}}
+				</div>
+			</div>
+			<div class="tags-area card card-dark">
+				<div class="card-header">
+					<div class="card-title">タグ</div>
+				</div>
+				<div class="card-content">
+					<div class="post-tags">{{tag_links all=true}}</div>
+				</div>
+			</div>
     </div>
   </div>
 </div>

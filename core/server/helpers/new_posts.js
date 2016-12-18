@@ -42,12 +42,12 @@ new_posts = function(options) {
               return utils.simpleImagePostTemplate({
                 url: post.url,
                 imagePath: post.image || DEFAULT_IMAGE,
-                text: _.escape(post.title)
+                title: _.escape(post.title)
               });
             default:
               return utils.simplePostTemplate({
                 url: post.url,
-                text: _.escape(post.title)
+                title: _.escape(post.title)
               });
           }
         }).join("") + "</div>";

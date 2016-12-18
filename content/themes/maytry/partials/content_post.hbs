@@ -1,27 +1,25 @@
 <!-- トップ画面 -->
 {{! The post content }}
-<div class="card card-article horizontal {{post_class}}">
-	<div class="card-stacked">
-		<div class="card-header">
-			<div class="published-date">{{date published_at}}</div>
-			<div class="card-title">
-				<a href="{{url}}" class="overlay-effect">{{title}}</a>
-			</div>
+<div class="card card-article">
+	<div class="card-header">
+		<div class="published-date right">{{date published_at}}</div>
+		<div class="card-title">
+			<a href="{{url}}" class="overlay-effect">{{title}}</a>
 		</div>
-		<div class="card-content">
-			<div class="card-image">
-				<a href="{{url}}">
-					{{#if image}}
-						<img src="{{image}}">
-					{{else}}
-						<a href="{{url}}"><img src="/content/images/2016/05/title_logo.png"></a>
-					{{/if}}
-				</a>
-			</div>
-			<div class="summary">
-				<div class="post-tags">{{tag_links}}</div>
-				<p class="description">{{excerpt characters=50}}...</p>
-			</div>
+	</div>
+	<div class="card-content">
+		<div class="card-image">
+			<a href="{{url}}">
+				{{#if image}}
+					<img src="{{image}}">
+				{{else}}
+					<a href="{{url}}"><img src="/content/images/2016/05/title_logo.png"></a>
+				{{/if}}
+			</a>
+		</div>
+		<div class="summary">
+			<div class="post-tags">{{tag_links}}</div>
+			<p class="description">{{excerpt characters=46}}...</p>
 		</div>
 	</div>
 </div>
