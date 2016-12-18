@@ -121,9 +121,44 @@ p.year_month {
   }
 }
 
-.card-posts {
+.card-posts, .card-prev-next {
   box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, .3);
+}
+
+.card-posts {
   margin-bottom: 3em;
+}
+
+.card-prev-next {
+  &.row {
+    margin: inherit;
+  }
+  .prev, .next {
+    padding: 1px;
+    margin: 5px 0;
+    color: white;
+
+    &:hover {
+      p {
+        color: @emphasis-color;
+      }
+    }
+    h6 {
+      color: inherit;
+      margin-top: 0;
+      border-bottom: 1px dotted darkcyan;
+    }
+    p {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  .next {
+    h6, p {
+      text-align: right;
+    }
+  }
 }
 
 .post-tags {

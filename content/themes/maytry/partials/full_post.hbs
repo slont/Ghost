@@ -54,26 +54,21 @@
 					</div>
 
 					<!-- 前後の投稿 -->
-					<div class="prev-next row">
+					<div class="card card-dark card-prev-next row">
 						<div class="small-12 large-6 columns">
 							{{#prev_post}}
-								<div class="prev">
-									<a href="{{url}}">
-										<h4>前の投稿</h4>
-										<p>{{title}}</p>
-									</a>
-								</div>
+								<a href="{{url}}" class="prev">
+									<h6>前の投稿</h6>
+									<p>{{title}}</p>
+								</a>
 							{{/prev_post}}
 						</div>
-
 						<div class="small-12 large-6 columns">
 							{{#next_post}}
-								<div class="next">
-									<a href="{{url}}">
-										<h4>次の投稿</h4>
-										<p>{{title}}</p>
-									</a>
-								</div>
+								<a href="{{url}}" class="next">
+									<h6>次の投稿</h6>
+									<p>{{title}}</p>
+								</a>
 							{{/next_post}}
 						</div>
 					</div>
