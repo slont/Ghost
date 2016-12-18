@@ -74,24 +74,29 @@
 					</div>
 
 					{{#if author}}
-						{{#author}}
-							<div class="author-wrap">
-								<div class="author-img">
-									{{#if image}}
-										<img src="{{image}}" alt="{{name}}"/>
-									{{/if}}
-								</div>
-								<div class="author-status">
-									<h2>{{name}}</h2>
-									{{#if website}}
-										<span><a href="{{website}}" target="_blank">{{website}}</a></span>
-									{{/if}}
-									{{#if bio}}
-										<p>{{bio}}</p>
-									{{/if}}
-								</div>
+						<div class="card card-dark card-author">
+							<div class="card-header">
+								<div class="card-title">プロフィール</div>
 							</div>
-						{{/author}}
+							<div class="card-content">
+								{{#author}}
+									{{#if image}}
+										<div class="author-img">
+											<img src="{{image}}" alt="{{name}}"/>
+										</div>
+									{{/if}}
+									<div class="author-status">
+										<h3>{{name}}</h3>
+										{{#if website}}
+											<span><a href="{{website}}" target="_blank">{{website}}</a></span>
+										{{/if}}
+										{{#if bio}}
+											<p>{{bio}}</p>
+										{{/if}}
+									</div>
+								{{/author}}
+							</div>
+						</div>
 					{{/if}}
 					{{> comments}}
 				</div>
