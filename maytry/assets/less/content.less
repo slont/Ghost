@@ -2,146 +2,34 @@
 
 .content-container {
   margin: 0 auto;
-  padding-top: 10px;
   width: 100%;
   max-width: @container-width;
-
-  .main-column {
-    @media only screen and (min-width: 641px) {
-      padding-right: 5px !important;
-    }
-  }
-
-  .side-column-right {
-    @media only screen and (min-width: 641px) {
-      padding-left: 5px !important;
-
-      .google-ad {
-        margin-bottom: 5px;
-      }
-    }
-
-    .mt-panel {
-      border-bottom: solid 1px white;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &:last-child {
-        border-bottom: none;
-      }
-    }
-
-    h2.mt-label {
-      margin-top: 0;
-      font-size: 30px;
-      font-weight: bold;
-    }
-
-    .popular-posts-area {
-      .simple-post {
-        margin-bottom: 15px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
 }
 
-.blog-container {
-  width: 100%;
-
-  &.full_post {
-    padding-left: 3rem;
-    padding-right: 5px;
-
-    .word_counts {
-      margin-bottom: 30px;
-
-      h1, h2 {
-        padding-top: 100px;
-        margin-top: -100px;
-
-        &:not(:first-child) {
-          margin-top: -80px;
-        }
-      }
-
-      h3 {
-        padding-top: 90px;
-        margin-top: -90px;
-
-        &:not(:first-child) {
-          margin-top: -80px;
-        }
-      }
-
-      blockquote:not([class]) {
-        text-align: inherit;
-        padding: 20px 20px 20px 25px;
-        background-position-x: -10px;
-
-        p {
-          font-size: 1.1rem;
-          line-height: inherit;
-          border-bottom: none;
-        }
-
-        &::after {
-          right: -20px;
-        }
-      }
-    }
-  }
-
-  p,
-  ul li,
-  ol li {
-    font-weight: 500;
-  }
+.blog-content {
+  box-shadow: 1px 1px 5px 3px rgba(255, 255, 255, .3);
 
   .article-status {
     top: -20px;
   }
-
   .left-column {
     float: left;
     min-width: 320px;
   }
-
   .center-column {
     float: left;
     min-width: 840px;
   }
-
   .right-column {
     float: left;
     min-width: 320px;
   }
-}
-
-.blog-content {
-  background-color: @background-color;
-  margin: 10px 0;
-  padding: 10px;
-  border-left: 1px solid @border-color;
-  border-right: 1px solid @border-color;
-  border-radius: 10px; /* CSS3草案 */
-  -webkit-border-radius: 10px; /* Safari,Google Chrome用 */
-  -moz-border-radius: 10px; /* Firefox用 */
-
-  &:first-child {
-    margin-top: 0;
-  }
-
   .google-ad {
     margin-bottom: 1.5rem;
   }
-
   .word_counts {
+    margin-bottom: 3em;
+
     ul {
       margin: 10px 0 10px 30px;
 
@@ -149,33 +37,27 @@
         list-style-type: disc;
       }
     }
-
     ol {
       margin: 10px 0 10px 30px;
     }
-
     h2 {
       font-size: 34px;
       border-bottom: 1px solid @emphasis-color;
     }
-
     h3 {
       font-size: 26px;
       margin-top: 20px;
       margin-bottom: 6px;
       border-bottom: 1px solid @emphasis-color;
     }
-
     h4 {
       font-size: 22px;
       margin: 24px 0 4px;
     }
-
     img {
       margin: 0 auto;
     }
   }
-
   .time_min {
     text-transform: uppercase;
     text-align: right;
@@ -184,7 +66,6 @@
       color: @emphasis-color;
     }
   }
-
   .post-status {
     display: flex;
     align-items: center;
@@ -195,12 +76,8 @@
         height: 25px;
       }
     }
-
     .published_date {
       margin-right: auto;
-    }
-
-    .time_min {
     }
   }
 
@@ -221,67 +98,6 @@
 
         &:hover {
           color: @emphasis-color;
-        }
-      }
-    }
-  }
-
-  p {
-    margin: 0;
-  }
-
-  ul li,
-  ol li {
-    font-size: 16px;
-  }
-
-  .read-more {
-    text-align: right;
-  }
-
-  .related-posts-area,
-  .popular-posts-area,
-  .new-posts-area {
-    margin: 20px 0;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
-    padding: 10px 0.6rem;
-
-    h4 {
-      color: #787878;
-      border-bottom: 4px solid @border-color;
-      padding-bottom: 4px;
-      margin-top: 0;
-      margin-bottom: 8px;
-    }
-
-    .simple-post {
-      margin-bottom: 12px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  .simple-image-posts,
-  .simple-image-post {
-    border-bottom: 1px solid gainsboro;
-  }
-
-  .simple-posts,
-  .simple-image-posts {
-    .simple-post,
-    .simple-image-post {
-      a {
-        font-size: 1rem;
-        color: black;
-        font-weight: bold;
-        text-decoration: none;
-
-        &:hover {
-          color: @emphasis-color;
-          font-weight: bold;
         }
       }
     }
@@ -317,7 +133,6 @@
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
   }
-
   &:hover:before, &:focus:before, &:active:before {
     left: 0;
     right: 0;
@@ -326,11 +141,15 @@
 
 @media only screen and (max-width: 1200px) {
   .content-container {
-    max-width: 920px;
+    max-width: 1080px;
   }
 }
 
 @media only screen and (max-width: 919px) {
+  .content-container {
+    max-width: 768px;
+  }
+
   p.year_month {
     text-align: left;
     margin-left: 25px;
@@ -338,8 +157,6 @@
   }
 
   .content-container {
-    max-width: 768px;
-
     .medium-10 {
       width: 100%;
 
@@ -393,7 +210,6 @@
             margin-top: 0;
           }
         }
-
         h3 {
           padding-top: 10px;
           margin-top: -10px;

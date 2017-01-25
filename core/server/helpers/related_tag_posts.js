@@ -75,19 +75,19 @@ related_tag_posts = function(options) {
       return new hbs.handlebars.SafeString("");
     }
     
-    var joined = "<div class='related-tag-posts simple-" + (mode !== 0 ? "image-" : "") + "posts'>" +
-        _.map(posts, function(post) {
+    var joined = "<div class='related-tag-posts simple-" + (mode !== 0 ? "image-" : "") + "posts'>"
+        + _.map(posts, function(post) {
           switch(mode) {
             case 1:
               return utils.simpleImagePostTemplate({
                 url: '/' + post.slug + '/',
                 imagePath: post.image || DEFAULT_IMAGE,
-                text: _.escape(post.title)
+                title: _.escape(post.title)
               });
             default:
               return utils.simplePostTemplate({
                 url: '/' + post.slug + '/',
-                text: _.escape(post.title)
+                title: _.escape(post.title)
               });
           }
         }).join("") + "</div>";
