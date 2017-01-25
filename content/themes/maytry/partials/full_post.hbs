@@ -1,6 +1,8 @@
 <!-- 記事画面 -->
 {{! The post content }}
-<div class="{{post_class}} content-container full_post" data-file="{{url}}" data-target=".word_counts">
+<div class="{{post_class}} content-container full_post"
+		 data-file="{{url}}"
+		 data-target=".word_counts">
   <div class="row multi-col">
     <div class="medium-9 column main-colmun">
       <div class="blog-content card">
@@ -17,9 +19,9 @@
 					</div>
 					<!-- ソーシャルボタン -->
 					<div class="social-area-syncer"></div>
-					<div class="word_counts">
+					<article class="word_counts" data-spy="scroll" data-target="#scroll-spy">
 						{{content addId=true}}
-					</div>
+					</article>
 					<!-- ソーシャルボタン -->
 					<div class="text-center show-for-small-only">↓気に入ったらシェアしてね↓</div>
 					<div class="social-area-syncer show-for-small-only"></div>
@@ -134,8 +136,8 @@
 				</div>
 			</div>
 			<div class="scroll-chaser">
-				<div class="card card-dark scroll-spy">
-					<div class="card-content">
+				<div class="card card-dark">
+					<div id="scroll-spy" class="card-content">
 						{{outline}}
 					</div>
 				</div>

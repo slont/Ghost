@@ -6,17 +6,6 @@
     $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
   });
 
-  // 文字数と予想時間
-  $(".blog-content").each(function() {
-    $(this).readingTime({
-      readingTimeTarget: $(this).find(".eta"),
-      wordCountTarget: $(this).find(".words"),
-      lang: document.getElementsByTagName("html")[0].getAttribute("lang"),
-      remotePath: $(this).attr("data-file"),
-      remoteTarget: $(this).attr("data-target")
-    });
-  });
-
   // スクロールでヘッダーの色透過
   $(window).scroll(function() {
     if (640 < window.innerWidth) {
@@ -40,16 +29,12 @@
 
   });
 
-  // ______________ MOBILE MENU
-  //$("#menu").slicknav();
-
   // ______________ SHARE BAR
-  if(640 < window.innerWidth && 0 < $('.scroll-spy').size()) {
-    $('body').scrollspy({target: '.scroll-spy', offset: 1});
-  }
-  // $('.outline ul').addClass('nav');
+  // if(640 <= window.innerWidth && 0 < $('.scroll-spy').size()) {
+  //   $('body').scrollspy({target: '.scroll-spy', offset: 1});
+  // }
 
-  if(0 < $('.scroll-chaser').size()) {
+  if(0 < $('.scroll-chaser').length) {
     $('.scroll-chaser').scrollChaser({
       wrapper: '.content-container',
       offsetTop: window.innerWidth <= 640 ? -5 : 66
@@ -69,7 +54,7 @@
   // ______________ BACK TO TOP BUTTON
 
   $(window).scroll(function() {
-    if($(this).scrollTop() > 200) {
+    if(200 < $(this).scrollTop()) {
       $("#back-to-top").fadeIn("slow");
     } else {
       $("#back-to-top").fadeOut("slow");
