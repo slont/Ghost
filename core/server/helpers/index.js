@@ -10,13 +10,14 @@ if (!utils.isProduction) {
     hbs.handlebars.logger.level = 0;
 }
 
-coreHelpers.asset  = require('./asset');
-coreHelpers.author  = require('./author');
-coreHelpers.body_class  = require('./body_class');
-coreHelpers.content  = require('./content');
-coreHelpers.date  = require('./date');
-coreHelpers.encode  = require('./encode');
-coreHelpers.excerpt  = require('./excerpt');
+coreHelpers.asset = require('./asset');
+coreHelpers.author = require('./author');
+coreHelpers.body_class = require('./body_class');
+coreHelpers.content = require('./content');
+coreHelpers.outline = require('./outline');
+coreHelpers.date = require('./date');
+coreHelpers.encode = require('./encode');
+coreHelpers.excerpt = require('./excerpt');
 coreHelpers.facebook_url = require('./facebook_url');
 coreHelpers.foreach = require('./foreach');
 coreHelpers.get = require('./get');
@@ -34,6 +35,10 @@ coreHelpers.post_class = require('./post_class');
 coreHelpers.prev_post = require('./prev_next');
 coreHelpers.next_post = require('./prev_next');
 coreHelpers.tags = require('./tags');
+coreHelpers.tag_links = require('./tag_links');
+coreHelpers.popular_posts = require('./popular_posts');
+coreHelpers.related_tag_posts = require('./related_tag_posts');
+coreHelpers.new_posts = require('./new_posts');
 coreHelpers.title = require('./title');
 coreHelpers.twitter_url = require('./twitter_url');
 coreHelpers.url = require('./url');
@@ -93,6 +98,7 @@ registerHelpers = function (adminHbs) {
     registerThemeHelper('author', coreHelpers.author);
     registerThemeHelper('body_class', coreHelpers.body_class);
     registerThemeHelper('content', coreHelpers.content);
+    registerThemeHelper('outline', coreHelpers.outline);
     registerThemeHelper('date', coreHelpers.date);
     registerThemeHelper('encode', coreHelpers.encode);
     registerThemeHelper('excerpt', coreHelpers.excerpt);
@@ -126,6 +132,10 @@ registerHelpers = function (adminHbs) {
     // Register admin helpers
     registerAdminHelper('asset', coreHelpers.asset);
     registerAdminHelper('input_password', coreHelpers.input_password);
+    registerAsyncThemeHelper('tag_links', coreHelpers.tag_links);
+    registerAsyncThemeHelper('popular_posts', coreHelpers.popular_posts);
+    registerAsyncThemeHelper('related_tag_posts', coreHelpers.related_tag_posts);
+    registerAsyncThemeHelper('new_posts', coreHelpers.new_posts);
 };
 
 module.exports = coreHelpers;
